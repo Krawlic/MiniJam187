@@ -13,14 +13,14 @@ config_version=5
 config/name="Firelight"
 config/description="A game I made for Mini Jam 187"
 config/version="0.1.0"
-run/main_scene="res://master.tscn"
+run/main_scene="res://Scenes/master.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://art/icon.png"
 
 [autoload]
 
-SignalBus="*res://Signal_Bus.gd"
-Global="*res://Global.gd"
+SignalBus="*res://Scenes/Scripts/Signal_Bus.gd"
+Global="*res://Scenes/Scripts/Global.gd"
 
 [display]
 

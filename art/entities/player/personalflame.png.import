@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4lbauivx80bf"
-path="res://.godot/imported/torch.png-0ca95aceb9e68fa7fc3048626f54c39d.ctex"
+uid="uid://dik1xa5ju6476"
+path="res://.godot/imported/personalflame.png-75fbc84b51f82132557e74303da89b28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/scenes/sewers/torch.png"
-dest_files=["res://.godot/imported/torch.png-0ca95aceb9e68fa7fc3048626f54c39d.ctex"]
+source_file="res://art/entities/player/personalflame.png"
+dest_files=["res://.godot/imported/personalflame.png-75fbc84b51f82132557e74303da89b28.ctex"]
 
 [params]
 

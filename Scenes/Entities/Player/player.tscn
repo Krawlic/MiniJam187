@@ -1,11 +1,11 @@
 [gd_scene load_steps=28 format=3 uid="uid://bhnpndq103000"]
 
-[ext_resource type="Script" path="res://PlayerController.gd" id="1_i32hp"]
+[ext_resource type="Script" path="res://Scenes/Entities/Player/PlayerController.gd" id="1_rtbnh"]
 [ext_resource type="Texture2D" uid="uid://mqdk8ngyxn4a" path="res://art/entities/player/player.png" id="2_v86nl"]
-[ext_resource type="Texture2D" uid="uid://dfs8s7766rtc7" path="res://art/manameter.png" id="3_v7ut7"]
-[ext_resource type="Script" path="res://Camera_Controller.gd" id="4_csw8q"]
-[ext_resource type="Texture2D" uid="uid://dik1xa5ju6476" path="res://art/personalflame.png" id="5_m6u74"]
-[ext_resource type="Texture2D" uid="uid://b5svghg81lvlw" path="res://art/light_round.jpg" id="6_bko0o"]
+[ext_resource type="Texture2D" uid="uid://dfs8s7766rtc7" path="res://art/entities/player/manameter.png" id="3_0bgoy"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Camera_Controller.gd" id="4_g14o7"]
+[ext_resource type="Texture2D" uid="uid://dik1xa5ju6476" path="res://art/entities/player/personalflame.png" id="5_ysof4"]
+[ext_resource type="Texture2D" uid="uid://b5svghg81lvlw" path="res://art/scenes/lights/light_round.jpg" id="6_fd8n3"]
 [ext_resource type="AudioStream" uid="uid://n10c8s846hhe" path="res://Sounds/hitHurt.wav" id="7_w0hxx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5fmh0"]
@@ -117,19 +117,19 @@ size = Vector2(7, 12)
 size = Vector2(5, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffwjt"]
-atlas = ExtResource("5_m6u74")
+atlas = ExtResource("5_ysof4")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2j2c1"]
-atlas = ExtResource("5_m6u74")
+atlas = ExtResource("5_ysof4")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vnqy"]
-atlas = ExtResource("5_m6u74")
+atlas = ExtResource("5_ysof4")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51uj8"]
-atlas = ExtResource("5_m6u74")
+atlas = ExtResource("5_ysof4")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w5afv"]
@@ -156,7 +156,7 @@ animations = [{
 
 [node name="character" type="CharacterBody2D" parent="." groups=["Player"]]
 collision_layer = 3
-script = ExtResource("1_i32hp")
+script = ExtResource("1_rtbnh")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="character"]
 sprite_frames = SubResource("SpriteFrames_36vxj")
@@ -176,13 +176,13 @@ shape = SubResource("RectangleShape2D_3vdem")
 
 [node name="manameter" type="Sprite2D" parent="character"]
 position = Vector2(0, -7)
-texture = ExtResource("3_v7ut7")
+texture = ExtResource("3_0bgoy")
 hframes = 7
 
 [node name="Camera2D" type="Camera2D" parent="character"]
 position = Vector2(0, -37)
 enabled = false
-script = ExtResource("4_csw8q")
+script = ExtResource("4_g14o7")
 
 [node name="personalflame" type="AnimatedSprite2D" parent="character"]
 position = Vector2(-7, 0)
@@ -190,7 +190,7 @@ sprite_frames = SubResource("SpriteFrames_w5afv")
 offset = Vector2(0, -3)
 
 [node name="PointLight2D" type="PointLight2D" parent="character/personalflame"]
-texture = ExtResource("6_bko0o")
+texture = ExtResource("6_fd8n3")
 texture_scale = 0.1
 
 [node name="playerleft" type="Node2D" parent="character"]

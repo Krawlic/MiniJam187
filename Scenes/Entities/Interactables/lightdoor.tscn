@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://cl8ytrwbq5xq"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Interactables/Lightdoor.gd" id="1_my8xi"]
+[ext_resource type="Texture2D" uid="uid://cmesv5254jj8t" path="res://art/scenes/sewers/door.png" id="2_cvv1n"]
+[ext_resource type="AudioStream" uid="uid://ckn6nbhmyjog2" path="res://Sounds/gate.wav" id="3_5sv8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvfuh"]
+size = Vector2(6, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnnxy"]
+atlas = ExtResource("2_cvv1n")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03ejc"]
+atlas = ExtResource("2_cvv1n")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c65r"]
+atlas = ExtResource("2_cvv1n")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j061v"]
+atlas = ExtResource("2_cvv1n")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a1pv"]
+atlas = ExtResource("2_cvv1n")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7bl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnnxy")
+}],
+"loop": true,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03ejc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c65r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j061v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a1pv")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 4.0
+}]
+
+[node name="Lightdoor" type="Node2D" node_paths=PackedStringArray("torches")]
+script = ExtResource("1_my8xi")
+torches = [null, null]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_fvfuh")
+debug_color = Color(0.860795, 0.000664397, 0.873694, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a7bl3")
+animation = &"Closed"
+
+[node name="openingsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5sv8q")

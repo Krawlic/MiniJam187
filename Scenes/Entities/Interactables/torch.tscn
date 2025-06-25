@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://cae36c1vj7r74"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Interactables/torch.gd" id="1_2jbt7"]
+[ext_resource type="Texture2D" uid="uid://d4lbauivx80bf" path="res://art/scenes/sewers/torch.png" id="2_bd7nm"]
+[ext_resource type="Texture2D" uid="uid://b5svghg81lvlw" path="res://art/scenes/lights/light_round.jpg" id="3_rs5j8"]
+[ext_resource type="AudioStream" uid="uid://c77un0srmk21k" path="res://Sounds/torch.wav" id="4_yu44m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li30k"]
+atlas = ExtResource("2_bd7nm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lladg"]
+atlas = ExtResource("2_bd7nm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2ean"]
+atlas = ExtResource("2_bd7nm")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxoil"]
+atlas = ExtResource("2_bd7nm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qkf8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li30k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lladg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2ean")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxoil")
+}],
+"loop": true,
+"name": &"unlit",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m0k2"]
+size = Vector2(14, 18)
+
+[node name="Torch" type="Node2D" groups=["Torch"]]
+script = ExtResource("1_2jbt7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qkf8i")
+animation = &"unlit"
+frame_progress = 0.817424
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="light" type="PointLight2D" parent="Node2D"]
+visible = false
+position = Vector2(0.312504, 0)
+scale = Vector2(0.295294, 0.292969)
+energy = 1.07
+texture = ExtResource("3_rs5j8")
+texture_scale = 1.05
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_7m0k2")
+
+[node name="Lightsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yu44m")

@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://xf2cxujl7tjc"]
+[gd_scene load_steps=12 format=3 uid="uid://bjku15ttw3b4c"]
 
 [ext_resource type="Texture2D" uid="uid://dsskfhkg8fdjt" path="res://art/scenes/sewers/sewer_tilemap.png" id="1_2le5r"]
-[ext_resource type="Script" path="res://Flame_Manager.gd" id="2_yslxr"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Flame_Manager.gd" id="2_yslxr"]
 [ext_resource type="PackedScene" uid="uid://bhnpndq103000" path="res://Scenes/Entities/Player/player.tscn" id="2_yu38i"]
-[ext_resource type="PackedScene" uid="uid://cae36c1vj7r74" path="res://Scenes/Entities/torch.tscn" id="4_wtdsv"]
-[ext_resource type="PackedScene" uid="uid://dsfeq8hpctjn3" path="res://Scenes/Entities/monster.tscn" id="5_0v7fc"]
-[ext_resource type="PackedScene" uid="uid://bpsdqiyn4djn5" path="res://Scenes/Entities/monster_stone.tscn" id="6_hoe3v"]
-[ext_resource type="PackedScene" uid="uid://d0a24eh5h1o7f" path="res://Scenes/exit_door.tscn" id="7_i8yi0"]
-[ext_resource type="PackedScene" uid="uid://cl8ytrwbq5xq" path="res://Scenes/lightdoor.tscn" id="7_s6g5f"]
+[ext_resource type="PackedScene" uid="uid://cae36c1vj7r74" path="res://Scenes/Entities/Interactables/torch.tscn" id="4_wtdsv"]
+[ext_resource type="PackedScene" uid="uid://dsfeq8hpctjn3" path="res://Scenes/Entities/NPCs/Monster/monster.tscn" id="5_0v7fc"]
+[ext_resource type="PackedScene" uid="uid://bpsdqiyn4djn5" path="res://Scenes/Entities/NPCs/Monster_Stone/monster_stone.tscn" id="6_hoe3v"]
+[ext_resource type="PackedScene" uid="uid://d0a24eh5h1o7f" path="res://Scenes/Entities/Interactables/exit_door.tscn" id="7_i8yi0"]
+[ext_resource type="PackedScene" uid="uid://cl8ytrwbq5xq" path="res://Scenes/Entities/Interactables/lightdoor.tscn" id="7_s6g5f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uk3dh"]
 

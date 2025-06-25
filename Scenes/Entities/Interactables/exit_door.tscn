@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0a24eh5h1o7f"]
+
+[ext_resource type="Texture2D" uid="uid://cmesv5254jj8t" path="res://art/scenes/sewers/door.png" id="1_et7i7"]
+[ext_resource type="Script" path="res://Scenes/Entities/Interactables/exit_door.gd" id="1_u3cgi"]
+[ext_resource type="Texture2D" uid="uid://b5svghg81lvlw" path="res://art/scenes/lights/light_round.jpg" id="2_4uqoe"]
+[ext_resource type="AudioStream" uid="uid://c5sv68oebb8lk" path="res://Sounds/escape.wav" id="4_kixsf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di1rw"]
+atlas = ExtResource("1_et7i7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydjhd"]
+atlas = ExtResource("1_et7i7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rovya"]
+atlas = ExtResource("1_et7i7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u4ff"]
+atlas = ExtResource("1_et7i7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld1fy"]
+atlas = ExtResource("1_et7i7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rftjc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di1rw")
+}],
+"loop": false,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydjhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rovya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u4ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld1fy")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m8ot"]
+size = Vector2(4, 10)
+
+[node name="ExitDoor" type="Node2D"]
+script = ExtResource("1_u3cgi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rftjc")
+animation = &"Open"
+
+[node name="ExitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0m8ot")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.56
+texture = ExtResource("2_4uqoe")
+texture_scale = 0.25
+
+[node name="exitsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kixsf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="ExitArea" to="." method="_on_exit_area_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

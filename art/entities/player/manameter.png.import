@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4lbauivx80bf"
-path="res://.godot/imported/torch.png-0ca95aceb9e68fa7fc3048626f54c39d.ctex"
+uid="uid://dfs8s7766rtc7"
+path="res://.godot/imported/manameter.png-7e9cda52027df64d1de32673661f876b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/scenes/sewers/torch.png"
-dest_files=["res://.godot/imported/torch.png-0ca95aceb9e68fa7fc3048626f54c39d.ctex"]
+source_file="res://art/entities/player/manameter.png"
+dest_files=["res://.godot/imported/manameter.png-7e9cda52027df64d1de32673661f876b.ctex"]
 
 [params]
 
