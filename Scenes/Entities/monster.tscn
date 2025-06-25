@@ -1,0 +1,146 @@
+[gd_scene load_steps=20 format=3 uid="uid://dsfeq8hpctjn3"]
+
+[ext_resource type="Texture2D" uid="uid://2n1tyii11hvi" path="res://art/entities/npc/monster/monster.png" id="1_mddhi"]
+[ext_resource type="Script" path="res://Scenes/Entities/monsterbody.gd" id="2_n4x0j"]
+[ext_resource type="Script" path="res://Scenes/Entities/monster_controller.gd" id="4_ja20h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecgm5"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cfx8"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibr70"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgpa8"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0edfm"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4xvs"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjpmf"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6mft"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxarq"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp2fv"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oui0"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eodrg"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21wbg"]
+atlas = ExtResource("1_mddhi")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sw4cm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecgm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cfx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibr70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgpa8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0edfm")
+}],
+"loop": true,
+"name": &"stone",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4xvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjpmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6mft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxarq")
+}],
+"loop": true,
+"name": &"turn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp2fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oui0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eodrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21wbg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huupo"]
+size = Vector2(8, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1db68"]
+
+[node name="monsterbody" type="CharacterBody2D"]
+script = ExtResource("2_n4x0j")
+
+[node name="monstersprite2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sw4cm")
+animation = &"idle"
+
+[node name="monster_controller" type="Node2D" parent="."]
+script = ExtResource("4_ja20h")
+
+[node name="hitbox2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox2"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_huupo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1db68")
+disabled = true
+
+[connection signal="area_entered" from="hitbox2" to="monster_controller" method="_on_hitbox_2_area_entered"]

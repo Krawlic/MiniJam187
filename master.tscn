@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b72gnd6vqn41d"]
+
+[ext_resource type="Script" path="res://master.gd" id="1_xedlx"]
+[ext_resource type="AudioStream" uid="uid://dj5t5qrd62f42" path="res://Sounds/8 Bit Retro Funk - David Renda.mp3" id="2_tw756"]
+
+[node name="Master" type="Node2D"]
+script = ExtResource("1_xedlx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(128, 72)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tw756")
+volume_db = -8.0
+autoplay = true
